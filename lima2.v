@@ -1,23 +1,24 @@
-'timescale 1ns / 1ps
-module halfadder();
+// AURELIUS JUSTIN YUSO LIM S11
+`timescale 1ns / 1ps
+module halfadder(s, x, y, ci);
     input x,y, ci;
     output s;
 
-    xor(s, x, y, ci); // x xor y
+    xor(s, x, y, ci);
     
 endmodule
 
-module fulladder();
+module fulladder(s, co, x, y, ci);
     input x, y, ci;
     output s, co;
     wire w1, w2, w3;
 
-    xor (w1, x, y) // x xor y
-    xor (s, w1, ci); // x xor y xor ci
+    xor (w1, x, y);
+    xor (s, w1, ci);
 
-    and(w2,x, y); // xy
-    and(w3, w1, ci); // (x xor y)ci
-    or (co, w3, w2); // (x xor y)ci + xy
+    and(w2,x, y); 
+    and(w3, w1, ci);
+    or (co, w3, w2);
 
 endmodule
 
@@ -62,7 +63,7 @@ module cla(S4, S3, C5, C4, C3, X, Y, C0);
 
 endmodule
 
-module circuit (S,C8,X,Y, C0);
+module lima2 (S,C8,X,Y, C0);
     input [7:0] X,Y;
     input C0;
     wire C1, C2, C3, C4, C5, C6, C7;
